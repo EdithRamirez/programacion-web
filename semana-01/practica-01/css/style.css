@@ -1,0 +1,24 @@
+body {
+    background: #f5f4eb;
+}
+
+#titulo {
+    color: #bd477b;
+    font-size: 58px;
+}
+
+.texto {
+    font-size: 22px;
+	text-decoration: underline;
+}
+
+/*
+crear carpeta semana-01
+	dentro crear otra carpeta html-css
+	dentro crear un index.html
+
+	crear carpeta css
+	crear style.css
+
+
+*/
