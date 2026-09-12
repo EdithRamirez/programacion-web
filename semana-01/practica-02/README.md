@@ -1,42 +1,30 @@
-# Ejercicio HTML y CSS
+# HTML + CSS: aplicación
 
 ## Descripción
 
-Crear una página web básica utilizando **HTML y CSS**, aplicando los elementos principales vistos en clase.
-
-## Fecha de entrega
-
-**DD/MM/YYYY**
+Crea una página web básica utilizando **HTML y CSS**, aplicando los elementos y selectores vistos en clase.
 
 ## Requisitos
 
 La página debe incluir:
 
-* Dos encabezados.
-* Al menos dos párrafos.
-* Una lista.
-* Un enlace.
-* La misma clase aplicada en dos etiquetas diferentes.
-* Un ID diferente para cada encabezado.
+- Dos encabezados.
+- Al menos dos párrafos.
+- Una lista.
+- Un enlace.
+- La misma clase aplicada en dos etiquetas diferentes.
+- Un ID diferente para cada encabezado.
 
 ## Tecnologías utilizadas
 
-* HTML5
-* CSS3
+- HTML5
+- CSS3
 
 ## Estructura de archivos
 
 ```text
 semana-01/
-└── ejercicio-html-css/
+└── practica-02/
     ├── index.html
-    └── style.css
-```
-
-## Evidencia
-
-La actividad se encuentra almacenada en:
-
-```text
-semana-01/ejercicio-html-css/
-```
+    └── css/
+        └── style.css
