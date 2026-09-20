@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Inventario Web</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="container header-content">
+
+				<a href="#" class="logo">Inventario Web</a>
+
+				<nav class="nav">
+					<ul>
+						<li>
+							<a href="#" class="active">Inicio</a>
+						</li>
+						<li>
+							<a href="#">Productos</a>
+						</li>
+						<li>
+							<a href="#">Categorías</a>
+						</li>
+						<li>
+							<a href="#">Inventario</a>
+						</li>
+					</ul>
+				</nav>
+
+			</div>
+
+		</header>
+
+		<main>
+
+			<!-- Presentación -->
+			<section class="hero">
+
+				<div class="container">
+
+					<p class="hero-label">Almacén Central</p>
+
+					<h1>Control de inventario</h1>
+
+					<p class="hero-description"> Consulta los productos registrados y conoce su categoría, precio, existencias y disponibilidad actual.</p>
+
+					<div class="warehouse-info">
+						<p><strong>Responsable:</strong> Área de Sistemas</p>
+						<p><strong>Horario:</strong> 9:00 a 18:00 hrs.</p>
+					</div>
+
+				</div>
+
+			</section>
+
+
+			<!-- Resumen -->
+			<section class="section">
+
+				<div class="container">
+
+					<div class="section-heading">
+						<p class="section-label">Información general</p>
+						<h2>Resumen del inventario</h2>
+					</div>
+
+					<div class="summary-grid">
+
+						<article class="summary-card">
+							<p>Productos registrados</p>
+							<strong>5</strong>
+						</article>
+
+						<article class="summary-card">
+							<p>Unidades disponibles</p>
+							<strong>32</strong>
+						</article>
+
+						<article class="summary-card">
+							<p>Productos agotados</p>
+							<strong>1</strong>
+						</article>
+
+					</div>
+
+				</div>
+
+			</section>
+
+			<!-- Categorías -->
+			<section class="section section-light">
+
+				<div class="container">
+
+					<div class="section-heading">
+						<p class="section-label">Clasificación</p>
+						<h2>Categorías disponibles</h2>
+					</div>
+
+					<ul class="category-list">
+						<li>Computación</li>
+						<li>Accesorios</li>
+						<li>Audio</li>
+						<li>Almacenamiento</li>
+					</ul>
+
+				</div>
+
+			</section>
+
+
+			<!-- Productos -->
+			<section class="section">
+
+				<div class="container">
+
+					<div class="section-heading">
+						<p class="section-label">Existencias</p>
+						<h2>Productos registrados</h2>
+					</div>
+
+					<div class="table-container">
+						<!-- Tabla -->
+						<table>
+
+							<thead>
+								<tr> <!-- Fila -->
+									<th>Producto</th> <!-- Encabezado / Titulo -->
+									<th>Categoría</th>
+									<th>Precio</th>
+									<th>Stock</th>
+									<th>Estado</th>
+								</tr>
+							</thead>
+
+							<tbody>
+
+								<tr>
+									<td>Laptop</td> <!-- Dato -->
+									<td>Computación</td>
+									<td>$14,500</td>
+									<td>8</td>
+									<td>
+										<span class="status available">Disponible</span>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Mouse</td>
+									<td>Accesorios</td>
+									<td>$350</td>
+									<td>15</td>
+									<td>
+										<span class="status available">Disponible</span>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Teclado</td>
+									<td>Accesorios</td>
+									<td>$650</td>
+									<td>3</td>
+									<td>
+										<span class="status low">
+											Bajo stock
+										</span>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Monitor</td>
+									<td>Computación</td>
+									<td>$4,200</td>
+									<td>0</td>
+									<td>
+										<span class="status unavailable">
+											Agotado
+										</span>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Audífonos</td>
+									<td>Audio</td>
+									<td>$950</td>
+									<td>6</td>
+									<td>
+										<span class="status available">Disponible</span>
+									</td>
+								</tr>
+
+							</tbody>
+
+						</table>
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</main>
+
+
+		<footer class="footer">
+
+			<div class="container">
+				<p>Inventario Web &middot; Sistema académico de ejemplo</p>
+			</div>
+
+		</footer>
+
+	</body>
+
+</html>
