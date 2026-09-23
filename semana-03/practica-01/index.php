@@ -20,7 +20,7 @@
 		"Géneros",
 		"Favoritos"
 	];
-
+	
 	// FOREACH - Recorre los elementos de un arreglo uno por uno.
 
 	// foreach ($menu as $opcion) {
@@ -30,16 +30,35 @@
 
 	// Podemos provocar un error intentando mostrar directamente un arreglo con echo.
 	// echo $menu;
+	
+	//Sintaxis tradicional crear un arreglo
+	// $generos = array(
+	// 	"Acción",
+	// 	"Ciencia ficción",
+	// 	"Animación",
+	// 	"Drama",
+	// 	"Comedia"
+	// );
+
+	//Mostrar desde un elemento mediante su posicion
+	//echo $generos[2];
+
+	//Mostrar estructura mediante posicion
+	//print_r($generos);
+
+	//Contar elementos del arreglo
+	//echo count($generos);
 
 	// FOREACH + HTML
 	// Géneros disponibles
-	$generos = [
-		"Acción",
-		"Ciencia ficción",
-		"Animación",
-		"Drama",
-		"Comedia"
-	];
+	// $generos = [
+	// 	"Acción",
+	// 	"Ciencia ficción",
+	// 	"Animación",
+	// 	"Drama",
+	// 	"Comedia"
+	// ];
+
 
 	// ACCEDER - Se utiliza la posicion para obtener un dato específico, los arreglos inician desde 0.
 	//echo $generos[3];
