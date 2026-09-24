@@ -1,0 +1,17 @@
+body {
+	box-sizing: border-box;
+}
+.compra {
+	border: 1px solid #ccc;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.con-descuento {
+	color: green;
+	font-weight: bold;
+}
+
+.sin-descuento {
+	color: #555;
+}
