@@ -51,13 +51,13 @@
 
 	// FOREACH + HTML
 	// Géneros disponibles
-	// $generos = [
-	// 	"Acción",
-	// 	"Ciencia ficción",
-	// 	"Animación",
-	// 	"Drama",
-	// 	"Comedia"
-	// ];
+	$generos = [
+		"Acción",
+		"Ciencia ficción",
+		"Animación",
+		"Drama",
+		"Comedia"
+	];
 
 
 	// ACCEDER - Se utiliza la posicion para obtener un dato específico, los arreglos inician desde 0.
