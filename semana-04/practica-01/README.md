@@ -13,6 +13,8 @@ Integra **PHP con HTML** para enviar y recibir información mediante formularios
 - Recibe los datos mediante `$_GET` y `$_POST`.
 - Utiliza `isset()` para comprobar si los datos fueron enviados antes de utilizarlos.
 - Muestra de manera dinámica la información recibida.
+- Utiliza `htmlspecialchars()` al mostrar datos recibidos del usuario.
+- Comprueba el resultado desde localhost.
 
 ## Tecnologías utilizadas
 
@@ -26,8 +28,11 @@ Integra **PHP con HTML** para enviar y recibir información mediante formularios
 
 ```text
 semana-04/
-└── practica-04/
-	├── consulta.html
+└── practica-01/
+    ├── consulta.html
+    ├── consulta.php
     ├── registro.html
+    ├── registro.php
     └── css/
         └── style.css
+```

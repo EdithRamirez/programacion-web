@@ -33,3 +33,4 @@ Analiza el código generado por la herramienta de IA.
 semana-01/
 └── practica-03/
     └── index.html
+```

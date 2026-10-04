@@ -7,6 +7,7 @@ Retomar los ejercicios realizados en la actividad de **Lógica de programación*
 ## Instrucciones
 
 - Retoma la actividad Lógica de programación y convierte a código PHP los ejercicios realizados.
+- No realices el ejercicio 4: Validar una contraseña. Se retomará posteriormente al trabajar con formularios.
 - Identifica cada ejercicio utilizando comentarios.
 - Utiliza una etiqueta `<h2>` como título de cada ejercicio.
 - Utiliza PHP y etiquetas HTML básicas para mostrar los resultados en pantalla.

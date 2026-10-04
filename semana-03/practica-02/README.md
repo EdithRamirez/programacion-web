@@ -44,6 +44,7 @@ number_format($numero);
 ```text
 semana-03/
 └── practica-02/
+    ├── index.html
     ├── index.php
     └── css/
         └── style.css

@@ -29,6 +29,7 @@ http://localhost/semana-03/practica-01/
 ```text
 semana-03/
 └── practica-01/
+    ├── index.html
     ├── index.php
     └── css/
         └── style.css
