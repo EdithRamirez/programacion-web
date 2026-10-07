@@ -6,7 +6,7 @@
 			"nombre" => "Ana López",
 			"cuatrimestre" => 7,
 			"programa" => "Sistemas Computacionales",
-			"promedio" => 8.5,
+			"promedio" => 8,
 			"estado" => "Activo"
 		],
 		[
@@ -14,7 +14,7 @@
 			"nombre" => "Luis Martínez",
 			"cuatrimestre" => 7,
 			"programa" => "Sistemas Computacionales",
-			"promedio" => 7.8,
+			"promedio" => 7,
 			"estado" => "Activo"
 		],
 		[
@@ -22,7 +22,7 @@
 			"nombre" => "Carla Hernández",
 			"cuatrimestre" => 7,
 			"programa" => "Sistemas Computacionales",
-			"promedio" => 9.2,
+			"promedio" => 9,
 			"estado" => "Activo"
 		],
 		[
@@ -30,7 +30,7 @@
 			"nombre" => "Diego Ramírez",
 			"cuatrimestre" => 7,
 			"programa" => "Sistemas Computacionales",
-			"promedio" => 6.9,
+			"promedio" => 6,
 			"estado" => "Activo"
 		]
 	];
@@ -64,12 +64,11 @@
 		<header class="site-header">
 			<div class="container header-content">
 				<div class="brand">Campus Web</div>
-
 				<nav>
 					<ul>
 						<li><a href="index.php">Inicio</a></li>
 						<li><a class="active" href="consulta.php">Consulta</a></li>
-						<li><a href="registro.html">Registro</a></li>
+						<li><a href="registro.php">Registro</a></li>
 						<li><a href="alumnos.php">Alumnos</a></li>
 					</ul>
 				</nav>

@@ -6,7 +6,7 @@
 			"nombre" => "Ana López",
 			"correo" => "ana@campusweb.mx",
 			"cuatrimestre" => 7,
-			"promedio" => 8.5,
+			"promedio" => 8,
 			"estado" => "Activo"
 		],
 		[
@@ -14,7 +14,7 @@
 			"nombre" => "Luis Martínez",
 			"correo" => "luis@campusweb.mx",
 			"cuatrimestre" => 7,
-			"promedio" => 7.8,
+			"promedio" => 7,
 			"estado" => "Activo"
 		],
 		[
@@ -22,7 +22,7 @@
 			"nombre" => "Carla Hernández",
 			"correo" => "carla@campusweb.mx",
 			"cuatrimestre" => 7,
-			"promedio" => 9.2,
+			"promedio" => 9,
 			"estado" => "Activo"
 		],
 		[
@@ -30,7 +30,7 @@
 			"nombre" => "Diego Ramírez",
 			"correo" => "diego@campusweb.mx",
 			"cuatrimestre" => 7,
-			"promedio" => 6.9,
+			"promedio" => 6,
 			"estado" => "Baja temporal"
 		]
 	];
@@ -52,7 +52,7 @@
 					<ul>
 						<li><a href="index.php">Inicio</a></li>
 						<li><a href="consulta.php">Consulta</a></li>
-						<li><a href="registro.html">Registro</a></li>
+						<li><a href="registro.php">Registro</a></li>
 						<li><a class="active" href="alumnos.php">Alumnos</a></li>
 					</ul>
 				</nav>

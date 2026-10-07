@@ -15,7 +15,7 @@
 					<ul>
 						<li><a class="active" href="index.php">Inicio</a></li>
 						<li><a href="consulta.php">Consulta</a></li>
-						<li><a href="registro.html">Registro</a></li>
+						<li><a href="registro.php">Registro</a></li>
 						<li><a href="alumnos.php">Alumnos</a></li>
 					</ul>
 				</nav>
@@ -45,7 +45,7 @@
 						<article class="card">
 							<h3>Registro</h3>
 							<p>Captura información mediante un formulario enviado con POST.</p>
-							<a class="button" href="registro.html">Registrar</a>
+							<a class="button" href="registro.php">Registrar</a>
 						</article>
 
 						<article class="card">
