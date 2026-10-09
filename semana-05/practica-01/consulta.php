@@ -1,54 +1,74 @@
 <?php
+	function escaparHtml($texto) {
+		return htmlspecialchars($texto, ENT_QUOTES, 'UTF-8');
+	}
 
-	$alumnos = [
-		[
-			"matricula" => "A001",
-			"nombre" => "Ana López",
-			"cuatrimestre" => 7,
-			"programa" => "Sistemas Computacionales",
-			"promedio" => 8,
-			"estado" => "Activo"
-		],
-		[
-			"matricula" => "A002",
-			"nombre" => "Luis Martínez",
-			"cuatrimestre" => 7,
-			"programa" => "Sistemas Computacionales",
-			"promedio" => 7,
-			"estado" => "Activo"
-		],
-		[
-			"matricula" => "A003",
-			"nombre" => "Carla Hernández",
-			"cuatrimestre" => 7,
-			"programa" => "Sistemas Computacionales",
-			"promedio" => 9,
-			"estado" => "Activo"
-		],
-		[
-			"matricula" => "A004",
-			"nombre" => "Diego Ramírez",
-			"cuatrimestre" => 7,
-			"programa" => "Sistemas Computacionales",
-			"promedio" => 6,
-			"estado" => "Activo"
-		]
-	];
+	function obtenerAlumnos() {
+		return [
+				[
+					"matricula" => "A001",
+					"nombre" => "Ana López",
+					"correo" => "ana@campusweb.mx",
+					"cuatrimestre" => 7,
+					"programa" => "Sistemas Computacionales",
+					"promedio" => 8,
+					"estado" => "Activo"
+				],
+				[
+					"matricula" => "A002",
+					"nombre" => "Luis Martínez",
+					"correo" => "luis@campusweb.mx",
+					"cuatrimestre" => 7,
+					"programa" => "Sistemas Computacionales",
+					"promedio" => 7,
+					"estado" => "Activo"
+				],
+				[
+					"matricula" => "A003",
+					"nombre" => "Carla Hernández",
+					"correo" => "carla@campusweb.mx",
+					"cuatrimestre" => 7,
+					"programa" => "Sistemas Computacionales",
+					"promedio" => 9,
+					"estado" => "Activo"
+				],
+				[
+					"matricula" => "A004",
+					"nombre" => "Diego Ramírez",
+					"correo" => "diego@campusweb.mx",
+					"cuatrimestre" => 7,
+					"programa" => "Sistemas Computacionales",
+					"promedio" => 6,
+					"estado" => "Activo"
+				]
+			];
+	}
+	function buscarAlumno($alumnos, $matricula) {
+		foreach ($alumnos as $alumno) {
+			if ($alumno["matricula"] === $matricula) {
+				return $alumno;
+			}
+		}
+		return null;
+	}
 
+	$alumnos = obtenerAlumnos();
+	
 	$busquedaRealizada = false;
-	$encontrado = false;
-	$resultado = [];
+	//$encontrado = false;
+	//$resultado = [];
+	$resultado = null;
 
 	if (isset($_GET["matricula"])) {
 		$busquedaRealizada = true;
-		$matriculaBuscada = $_GET["matricula"];
+		$matriculaBuscada = trim($_GET["matricula"]);
 
-		foreach ($alumnos as $alumno) {
-			if ($alumno["matricula"] == $matriculaBuscada) {
-				$resultado = $alumno;
-				$encontrado = true;
-			}
-		}
+		 $resultado = buscarAlumno($alumnos, $matriculaBuscada);
+
+		// if ($resultado !== null) {
+		// 	$encontrado = true;
+
+		// }
 	}
 
 ?>
@@ -104,35 +124,35 @@
 				<section class="section light">
 					<div class="container">
 
-						<?php if ($encontrado) { ?>
+						<?php if ($resultado !== null) { ?>
 							<article class="student-card">
 								<div class="student-header">
 									<div>
 										<span class="status available">
-											<?php echo htmlspecialchars($resultado["estado"]); ?>
+											<?php echo escaparHtml($resultado["estado"]); ?>
 										</span>
 
-										<h3><?php echo htmlspecialchars($resultado["nombre"]); ?></h3>
+										<h3><?php echo escaparHtml($resultado["nombre"]); ?></h3>
 										<p class="student-id">
 											Matrícula:
-											<?php echo htmlspecialchars($resultado["matricula"]); ?>
+											<?php echo escaparHtml($resultado["matricula"]); ?>
 										</p>
 									</div>
 
 									<span class="semester">
-										<?php echo htmlspecialchars((string) $resultado["cuatrimestre"]); ?>&ordm; cuatrimestre
+										<?php echo escaparHtml($resultado["cuatrimestre"]); ?>&ordm; cuatrimestre
 									</span>
 								</div>
 
 								<div class="student-info">
 									<div class="info-item">
 										<p>Programa</p>
-										<strong><?php echo htmlspecialchars($resultado["programa"]); ?></strong>
+										<strong><?php echo escaparHtml($resultado["programa"]); ?></strong>
 									</div>
 
 									<div class="info-item">
 										<p>Promedio</p>
-										<strong><?php echo htmlspecialchars((string) $resultado["promedio"]); ?></strong>
+										<strong><?php echo escaparHtml($resultado["promedio"]); ?></strong>
 									</div>
 								</div>
 							</article>
@@ -142,7 +162,7 @@
 								<p>
 									No existe información para la matrícula:
 									<strong>
-										<?php echo htmlspecialchars($_GET["matricula"]); ?>
+										<?php echo escaparHtml($_GET["matricula"]); ?>
 									</strong>
 								</p>
 							</div>

@@ -1,39 +1,55 @@
 <?php
+	
+	function tituloPagina() {
+		echo "Alumnos";
+	}
 
-	$alumnos = [
-		[
-			"matricula" => "A001",
-			"nombre" => "Ana López",
-			"correo" => "ana@campusweb.mx",
-			"cuatrimestre" => 7,
-			"promedio" => 8,
-			"estado" => "Activo"
-		],
-		[
-			"matricula" => "A002",
-			"nombre" => "Luis Martínez",
-			"correo" => "luis@campusweb.mx",
-			"cuatrimestre" => 7,
-			"promedio" => 7,
-			"estado" => "Activo"
-		],
-		[
-			"matricula" => "A003",
-			"nombre" => "Carla Hernández",
-			"correo" => "carla@campusweb.mx",
-			"cuatrimestre" => 7,
-			"promedio" => 9,
-			"estado" => "Activo"
-		],
-		[
-			"matricula" => "A004",
-			"nombre" => "Diego Ramírez",
-			"correo" => "diego@campusweb.mx",
-			"cuatrimestre" => 7,
-			"promedio" => 6,
-			"estado" => "Baja temporal"
-		]
-	];
+	function escaparHtml($texto) {
+		return htmlspecialchars($texto, ENT_QUOTES, 'UTF-8');
+	}
+
+	function obtenerAlumnos() {
+		return [
+			[
+				"matricula" => "A001",
+				"nombre" => "Ana López",
+				"correo" => "ana@campusweb.mx",
+				"cuatrimestre" => 7,
+				"programa" => "Sistemas Computacionales",
+				"promedio" => 8,
+				"estado" => "Activo"
+			],
+			[
+				"matricula" => "A002",
+				"nombre" => "Luis Martínez",
+				"correo" => "luis@campusweb.mx",
+				"cuatrimestre" => 7,
+				"programa" => "Sistemas Computacionales",
+				"promedio" => 7,
+				"estado" => "Activo"
+			],
+			[
+				"matricula" => "A003",
+				"nombre" => "Carla Hernández",
+				"correo" => "carla@campusweb.mx",
+				"cuatrimestre" => 7,
+				"programa" => "Sistemas Computacionales",
+				"promedio" => 9,
+				"estado" => "Activo"
+			],
+			[
+				"matricula" => "A004",
+				"nombre" => "Diego Ramírez",
+				"correo" => "diego@campusweb.mx",
+				"cuatrimestre" => 7,
+				"programa" => "Sistemas Computacionales",
+				"promedio" => 6,
+				"estado" => "Activo"
+			]
+		];
+	}
+
+	$alumnos = obtenerAlumnos();
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +57,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Alumnos | Campus Web</title>
+
+		<title><?php tituloPagina(); ?> | Campus Web</title>
+
+		
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
@@ -87,12 +106,12 @@
 							<tbody>
 								<?php foreach ($alumnos as $alumno) { ?>
 									<tr>
-										<td><?php echo htmlspecialchars($alumno["matricula"]); ?></td>
-										<td><?php echo htmlspecialchars($alumno["nombre"]); ?></td>
-										<td><?php echo htmlspecialchars($alumno["correo"]); ?></td>
-										<td><?php echo htmlspecialchars((string) $alumno["cuatrimestre"]); ?></td>
-										<td><?php echo htmlspecialchars((string) $alumno["promedio"]); ?></td>
-										<td><?php echo htmlspecialchars($alumno["estado"]); ?></td>
+										<td><?php echo escaparHtml($alumno["matricula"]); ?></td>
+										<td><?php echo escaparHtml($alumno["nombre"]); ?></td>
+										<td><?php echo escaparHtml($alumno["correo"]); ?></td>
+										<td><?php echo escaparHtml($alumno["cuatrimestre"]); ?></td>
+										<td><?php echo escaparHtml($alumno["promedio"]); ?></td>
+										<td><?php echo escaparHtml($alumno["estado"]); ?></td>
 									</tr>
 								<?php } ?>
 							</tbody>

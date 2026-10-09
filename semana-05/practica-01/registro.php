@@ -1,4 +1,9 @@
 <?php
+	//FUNCIONES
+	function escaparHtml($texto) {
+		return htmlspecialchars($texto, ENT_QUOTES, 'UTF-8');
+	}
+
 	// Inicia en false porque al cargar la página por primera vez todavía no se ha enviado ningún formulario
 	$formularioEnviado = false;
 
@@ -123,18 +128,16 @@
 				<div class="container">
 					<!-- Se muestra únicamente cuando: 1. El formulario fue enviado; 2. El arreglo $errores contiene elementos -->
 					<?php if ($formularioEnviado && count($errores) > 0) { ?>
-
 						<div class="error-box">
 							<h3>Revisa la información</h3>
 							<ul>
 								<!-- foreach recorre todos los mensajes guardados dentro de $errores -->
 								<?php foreach ($errores as $error) { ?>
 									<!-- htmlspecialchars() protege la salida antes de insertarla dentro del HTML -->
-									<li><?php echo htmlspecialchars($error); ?></li>
+									<li><?php echo escaparHtml($error); ?></li>
 								<?php } ?>
 							</ul>
 						</div>
-
 					<?php } ?>
 
 					<div class="form-card">
@@ -147,25 +150,25 @@
 								<!-- name="matricula" define la clave que PHP recibe como $_POST["matricula"] -->
 								<div class="form-group">
 									<label for="matricula">Matrícula</label>
-									<input type="text" id="matricula" name="matricula" placeholder="Ej. A005" value="<?php echo isset($matricula) ? htmlspecialchars($matricula) : ""; ?>">
+									<input type="text" id="matricula" name="matricula" placeholder="Ej. A005" value="<?php echo isset($matricula) ? escaparHtml($matricula) : ""; ?>">
 								</div>
 
 								<div class="form-group">
 									<label for="nombre">Nombre</label>
 
-									<input type="text" id="nombre" name="nombre" placeholder="Ej. Daniela" value="<?php echo isset($nombre) ? htmlspecialchars($nombre) : ""; ?>">
+									<input type="text" id="nombre" name="nombre" placeholder="Ej. Daniela" value="<?php echo isset($nombre) ? escaparHtml($nombre) : ""; ?>">
 								</div>
 
 								<div class="form-group">
 									<label for="apellido">Apellido</label>
 
-									<input type="text" id="apellido" name="apellido" placeholder="Ej. Rodríguez" value="<?php echo isset($apellido) ? htmlspecialchars($apellido) : ""; ?>">
+									<input type="text" id="apellido" name="apellido" placeholder="Ej. Rodríguez" value="<?php echo isset($apellido) ? escaparHtml($apellido) : ""; ?>">
 								</div>
 
 								<div class="form-group">
 									<label for="correo">Correo</label>
 
-									<input type="text" id="correo" name="correo" placeholder="alumno@correo.com" value="<?php echo isset($correo) ? htmlspecialchars($correo) : ""; ?>">
+									<input type="text" id="correo" name="correo" placeholder="alumno@correo.com" value="<?php echo isset($correo) ? escaparHtml($correo) : ""; ?>">
 								</div>
 
 								<div class="form-group">
@@ -183,7 +186,7 @@
 								<div class="form-group">
 									<label for="promedio">Promedio</label>
 
-									<input type="text" id="promedio" name="promedio" placeholder="Ej. 8" value="<?php echo isset($promedio) ? htmlspecialchars($promedio) : ""; ?>">
+									<input type="text" id="promedio" name="promedio" placeholder="Ej. 8" value="<?php echo isset($promedio) ? escaparHtml($promedio) : ""; ?>">
 								</div>
 
 								<div class="form-group full">
@@ -216,20 +219,18 @@
 
 							<div class="student-header">
 								<div>
-									<span class="status available"><?php echo htmlspecialchars($estado); ?></span>
+									<span class="status available"><?php echo escaparHtml($estado); ?></span>
 									<h3>
-										<?php
-											echo htmlspecialchars($nombre) . " " . htmlspecialchars($apellido);
-										?>
+										<?php echo escaparHtml($nombre); ?>
 									</h3>
 
 									<p class="student-id">
 										Matrícula:
-										<?php echo htmlspecialchars($matricula); ?>
+										<?php echo escaparHtml($matricula); ?>
 									</p>
 								</div>
 								<span class="semester">
-									<?php echo htmlspecialchars($cuatrimestre); ?>&ordm; cuatrimestre
+									<?php echo escaparHtml($cuatrimestre); ?>&ordm; cuatrimestre
 								</span>
 							</div>
 							<div class="student-info">
@@ -237,13 +238,13 @@
 								<div class="info-item">
 									<p>Correo</p>
 									<strong>
-										<?php echo htmlspecialchars($correo); ?>
+										<?php echo escaparHtml($correo); ?>
 									</strong>
 								</div>
 								<div class="info-item">
 									<p>Promedio</p>
 									<strong>
-										<?php echo htmlspecialchars($promedio); ?>
+										<?php echo escaparHtml($promedio); ?>
 									</strong>
 								</div>
 							</div>
@@ -259,5 +260,3 @@
 		</footer>
 	</body>
 </html>
-
-
