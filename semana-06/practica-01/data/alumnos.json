@@ -1,0 +1,38 @@
+[
+	{
+		"matricula": "A001",
+		"nombre": "Ana López",
+		"correo": "ana@campusweb.mx",
+		"cuatrimestre": 7,
+		"programa": "Sistemas Computacionales",
+		"promedio": 8,
+		"estado": "Activo"
+	},
+	{
+		"matricula": "A002",
+		"nombre": "Luis Martínez",
+		"correo": "luis@campusweb.mx",
+		"cuatrimestre": 7,
+		"programa": "Sistemas Computacionales",
+		"promedio": 7,
+		"estado": "Activo"
+	},
+	{
+		"matricula": "A003",
+		"nombre": "Carla Hernández",
+		"correo": "carla@campusweb.mx",
+		"cuatrimestre": 7,
+		"programa": "Sistemas Computacionales",
+		"promedio": 9,
+		"estado": "Activo"
+	},
+	{
+		"matricula": "A004",
+		"nombre": "Diego Ramírez",
+		"correo": "diego@campusweb.mx",
+		"cuatrimestre": 7,
+		"programa": "Sistemas Computacionales",
+		"promedio": 6,
+		"estado": "Activo"
+	}
+]

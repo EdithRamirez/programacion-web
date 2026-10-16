@@ -27,7 +27,7 @@ La práctica parte de las páginas existentes de **Campus Web** y busca reducir 
 ($paginaActual === $opcion["pagina"]) ? "active" : ""
 ```
 
-- Identifica el código de navegación que se repite y sepáralo en `includes/nav.php`.
+- Identifica el código de navegación que se repite y sepáralo en `includes/header.php`.
 - Identifica el pie de página repetido y sepáralo en `includes/footer.php`.
 - Sustituye el código repetido por la inclusión de los archivos correspondientes.
 - Comprueba que todas las páginas conserven su navegación, estilos y funcionamiento.
@@ -53,7 +53,7 @@ semana-06/
     ├── alumnos.php
     ├── includes/
     │   ├── funciones.php
-    │   ├── nav.php
+    │   ├── header.php
     │   └── footer.php
     └── css/
         └── style.css

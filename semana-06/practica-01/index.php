@@ -1,81 +1,20 @@
 <?php 
-	/* PRÁCTICA
-		Revisa el código y evita repetir elementos que pueden reutilizarse entre diferentes páginas.
-	*/
+	require_once __DIR__ . "/includes/funciones.php";
+
 	$paginaActual = "inicio";
 
-	function obtenerTituloPagina($pagina) {
-		if ($pagina === "inicio") {
-			return "Inicio";
-		} elseif ($pagina === "consulta") {
-			return "Consulta";
-		} elseif ($pagina === "registro") {
-			return "Registro";
-		} elseif ($pagina === "alumnos") {
-			return "Alumnos";
-		}
-		return "Campus Web";
-	}
-
-	$menu = [
-		[
-			"pagina" => "inicio",
-			"texto" => "Inicio",
-			"url" => "index.php"
-		],
-		[
-			"pagina" => "consulta",
-			"texto" => "Consulta",
-			"url" => "consulta.php"
-		],
-		[
-			"pagina" => "registro",
-			"texto" => "Registro",
-			"url" => "registro.php"
-		],
-		[
-			"pagina" => "alumnos",
-			"texto" => "Alumnos",
-			"url" => "alumnos.php"
-		]
-	];
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- PRÁCTICA
-			Modifica el título para que se muestre de manera dinámica.
-		-->	
-			<title>Inicio | Campus Web</title>
+		<title><?php echo obtenerTituloPagina($paginaActual); ?> | Campus Web</title>
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<header class="site-header">
-			<div class="container header-content">
-				<div class="brand">Campus Web</div>
-				<!-- PRÁCTICA
-					Modifica el menú para que se muestre de manera dinámica.
-
-					Pista:
-					Para agregar la clase "active" cuando corresponda, utiliza:
-
-					($paginaActual === $opcion["pagina"]) ? "active" : ""
-				-->
-				<nav>
-					<ul>
-						<li><a class="active" href="index.php">Inicio</a></li>
-						<li><a href="consulta.php">Consulta</a></li>
-						<li><a href="registro.php">Registro</a></li>
-						<li><a href="alumnos.php">Alumnos</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-
+		<?php require_once __DIR__ . "/includes/header.php"; ?>
 		<main>
 			<section class="hero">
 				<div class="container">
@@ -112,10 +51,8 @@
 			</section>
 		</main>
 
-		<footer class="site-footer">
-			<div class="container">
-				<p>Campus Web · Programación Web</p>
-			</div>
-		</footer>
+		<?php 
+			require_once __DIR__ . "/includes/footer.php";
+		?>
 	</body>
 </html>

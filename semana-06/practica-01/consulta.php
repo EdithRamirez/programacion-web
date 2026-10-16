@@ -1,57 +1,33 @@
 <?php
-	
-	function escaparHtml($texto) {
-		return htmlspecialchars($texto, ENT_QUOTES, 'UTF-8');
-	}
+	// error_reporting(E_ALL);
+	// ini_set('display_errors', '1');
 
-	function obtenerAlumnos() {
-		return [
-				[
-					"matricula" => "A001",
-					"nombre" => "Ana López",
-					"correo" => "ana@campusweb.mx",
-					"cuatrimestre" => 7,
-					"programa" => "Sistemas Computacionales",
-					"promedio" => 8,
-					"estado" => "Activo"
-				],
-				[
-					"matricula" => "A002",
-					"nombre" => "Luis Martínez",
-					"correo" => "luis@campusweb.mx",
-					"cuatrimestre" => 7,
-					"programa" => "Sistemas Computacionales",
-					"promedio" => 7,
-					"estado" => "Activo"
-				],
-				[
-					"matricula" => "A003",
-					"nombre" => "Carla Hernández",
-					"correo" => "carla@campusweb.mx",
-					"cuatrimestre" => 7,
-					"programa" => "Sistemas Computacionales",
-					"promedio" => 9,
-					"estado" => "Activo"
-				],
-				[
-					"matricula" => "A004",
-					"nombre" => "Diego Ramírez",
-					"correo" => "diego@campusweb.mx",
-					"cuatrimestre" => 7,
-					"programa" => "Sistemas Computacionales",
-					"promedio" => 6,
-					"estado" => "Activo"
-				]
-			];
-	}
-	function buscarAlumno($alumnos, $matricula) {
-		foreach ($alumnos as $alumno) {
-			if ($alumno["matricula"] === $matricula) {
-				return $alumno;
-			}
-		}
-		return null;
-	}
+
+    /*
+        1. INCLUDE Y REQUIRE
+    */
+
+     include "includes/funciones.php";
+    // require "includes/funciones.php";
+
+
+    /*
+        2. INCLUDE_ONCE Y REQUIRE_ONCE
+    */
+
+    // include_once "includes/funciones.php";
+    // require_once "includes/funciones.php";
+
+
+    /*
+        3. RUTA CON __DIR__
+    */
+
+    // __DIR__ representa la carpeta del archivo actual.
+    // Se concatena con la ruta del archivo que queremos cargar.
+
+    //require_once __DIR__ . "/includes/funciones.php";
+    $paginaActual = "consulta";
 
 	$alumnos = obtenerAlumnos();
 	
@@ -71,24 +47,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Consulta | Campus Web</title>
+		<title><?php echo obtenerTituloPagina($paginaActual); ?> | Campus Web</title>
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<header class="site-header">
-			<div class="container header-content">
-				<div class="brand">Campus Web</div>
-				<nav>
-					<ul>
-						<li><a href="index.php">Inicio</a></li>
-						<li><a class="active" href="consulta.php">Consulta</a></li>
-						<li><a href="registro.php">Registro</a></li>
-						<li><a href="alumnos.php">Alumnos</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-
+		
+		<?php require_once __DIR__ . "/includes/header.php"; ?>
 		<main>
 			<section class="hero">
 				<div class="container">
@@ -181,10 +145,8 @@
 			</section>
 		</main>
 
-		<footer class="site-footer">
-			<div class="container">
-				<p>Campus Web · Programación Web</p>
-			</div>
-		</footer>
+		<?php 
+			require_once __DIR__ . "/includes/footer.php";
+		?>
 	</body>
 </html>
