@@ -1,0 +1,417 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+}
+
+.container.narrow {
+    width: min(760px, 90%);
+}
+
+.site-header {
+    min-height: 70px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-content {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.brand {
+    color: #222;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 5px;
+    color: #222;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background: #f0f0f0;
+}
+
+nav a.active {
+    background: #2367c7;
+    color: #fff;
+}
+
+.hero {
+    padding: 70px 0;
+    background: #f3f5f7;
+}
+
+.hero.compact {
+    padding: 48px 0;
+}
+
+.hero h1 {
+    margin-bottom: 14px;
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+.hero p {
+    max-width: 720px;
+    color: #555;
+    font-size: 1.08rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #2367c7;
+    font-size: .84rem;
+    font-weight: bold;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.hero-actions,
+.inline-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.section {
+    padding: 55px 0;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.section h2 {
+    margin-bottom: 8px;
+    font-size: 2rem;
+}
+
+.section-description {
+    color: #666;
+}
+
+.button,
+.form-actions button {
+    display: inline-block;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 5px;
+    background: #2367c7;
+    color: #fff;
+    font: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover,
+.form-actions button:hover {
+    background: #1d58aa;
+}
+
+.button.secondary {
+    border: 1px solid #c7c7c7;
+    background: #fff;
+    color: #222;
+}
+
+.button.secondary:hover {
+    background: #f4f4f4;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.post-card {
+    padding: 26px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.post-card h3 {
+    margin: 10px 0 8px;
+    font-size: 1.4rem;
+}
+
+.post-card p {
+    color: #555;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    color: #777;
+    font-size: .9rem;
+}
+
+.form-card {
+    padding: 28px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.form-grid.one-column {
+    grid-template-columns: 1fr;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    font: inherit;
+}
+
+.form-group textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2367c7;
+}
+
+.form-actions {
+    margin-top: 24px;
+}
+
+.form-note {
+    margin-top: 18px;
+    color: #666;
+    font-size: .95rem;
+}
+
+.remember-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    color: #444;
+}
+
+.error-box,
+.success-box {
+    margin-bottom: 24px;
+    padding: 18px 22px;
+    border-radius: 8px;
+}
+
+.error-box {
+    border: 1px solid #e0a4aa;
+    background: #f8d7da;
+    color: #842029;
+}
+
+.success-box {
+    border: 1px solid #a8d7b4;
+    background: #e3f3e7;
+    color: #236b38;
+}
+
+.error-box h3 {
+    margin-bottom: 8px;
+}
+
+.error-box ul {
+    padding-left: 22px;
+}
+
+.success-box a {
+    color: inherit;
+    font-weight: bold;
+}
+
+.profile-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: .88rem;
+    font-weight: bold;
+}
+
+.role-badge.editor {
+    background: #e7effb;
+    color: #235a9f;
+}
+
+.role-badge.admin {
+    background: #fbe9d4;
+    color: #885313;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.content-table th,
+.content-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.content-table th {
+    background: #f3f5f7;
+}
+
+.content-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.table-actions form {
+    margin: 0;
+}
+
+.action-link {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #2367c7;
+    font: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.action-link.danger {
+    color: #a32626;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    padding: 30px;
+    border: 1px dashed #bbb;
+    border-radius: 8px;
+    color: #666;
+    text-align: center;
+}
+
+.empty-state h3 {
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.site-footer {
+    padding: 28px 0;
+    border-top: 1px solid #ddd;
+    color: #666;
+    text-align: center;
+}
+
+@media (max-width: 750px) {
+    .header-content {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .posts-grid,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading,
+    .profile-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .table-actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
