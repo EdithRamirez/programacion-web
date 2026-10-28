@@ -1,17 +1,50 @@
 <?php
+	session_start();
 
+	//setcookie() guarda/envía la cookie al navegador; $_COOKIE permite recuperarla en solicitudes posteriores.
 	require_once __DIR__ . "/includes/funciones.php";
+
+	if(isset($_SESSION["usuario_id"])) {
+		header("Location: panel.php");
+		exit;
+	}
 
 	$paginaActual = "acceso";
 	$usuarios = obtenerUsuarios();
 	$correo = "";
 	$error = "";
-
+	if (isset($_COOKIE["correo_recordado"])) {
+		$correo = $_COOKIE["correo_recordado"];
+	}
 	if (isset($_POST["enviar"])) {
 		$correo = trim($_POST["correo"]);
 		$password = $_POST["password"];
 
 		// PRÁCTICA: buscar un usuario que coincida con las credenciales recibidas
+		// isset() verifica, $_COOKIE recupera y setcookie() guarda.
+		foreach ($usuarios as $usuario) { 
+			if ( $usuario["correo"] === $correo && $usuario["password"] === $password) {
+
+				// Guardar o eliminar la cookie
+				if (isset($_POST["recordar"])) {
+					setcookie("correo_recordado", $correo, time() + 3600, "/");
+				} else {
+					setcookie("correo_recordado", "", time() - 3600, "/");
+				}
+
+				// Guardar datos en la sesión
+				$_SESSION["usuario_id"] = $usuario["id"];
+				$_SESSION["nombre"] = $usuario["nombre"];
+				$_SESSION["correo"] = $usuario["correo"];
+				$_SESSION["rol"] = $usuario["rol"];
+
+				header("Location: panel.php");
+				exit;
+			} else {
+				$error = "Correo o contraseña incorrectos.";
+			}
+		}
+			
 	}
 ?>
 <!DOCTYPE html>
@@ -58,7 +91,7 @@
 							</div>
 							<!-- PRÁCTICA -->
 							<label class="remember-option">
-								<input type="checkbox" name="recordar">
+								<input type="checkbox" name="recordar" <?php echo ($correo !== "") ? "checked" : ""; ?>>
 								Recordar correo
 							</label>
 

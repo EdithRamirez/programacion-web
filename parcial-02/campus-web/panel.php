@@ -1,7 +1,13 @@
 <?php
+	session_start();
 	require_once __DIR__ . "/includes/funciones.php";
 
 	$paginaActual = "panel";
+	
+	if (!isset($_SESSION["usuario_id"])) {
+		header("Location: acceso.php");
+		exit;
+	}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,12 +28,12 @@
 					<div class="profile-heading">
 						<div>
 							<span class="eyebrow">Área privada</span>
-							<h1>Panel de usuario</h1>
-							<p>usuario@campusweb.com</p>
+							<h1>Hola, <?php echo escaparHtml($_SESSION["nombre"]); ?></h1>
+						<p><?php echo escaparHtml($_SESSION["correo"]); ?></p>
 						</div>
-						<span class="role-badge editor">
-							Editor
-						</span>
+						<span class="role-badge <?php echo (isset($_SESSION["rol"]) && $_SESSION["rol"] === "admin") ? "admin" : "editor"; ?>">
+						<?php echo (isset($_SESSION["rol"]) && $_SESSION["rol"] === "admin") ? "Administrador" : "Editor"; ?>
+					</span>
 					</div>
 
 				</div>

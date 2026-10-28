@@ -11,12 +11,13 @@
 				</li>
 
 			<!-- PRÁCTICA -->
+			 <?php if (!isset($_SESSION["usuario_id"])) { ?>
 				<li>
 					<a href="acceso.php" class="<?php echo ($paginaActual === "acceso") ? "active" : ""; ?>">
 						Iniciar sesión
 					</a>
 				</li>
-			
+			<?php } else { ?>
 				<li>
 					<a href="panel.php" class="<?php echo ($paginaActual === "panel") ? "active" : ""; ?>">
 						Panel
@@ -25,7 +26,7 @@
 				<li>
 					<a href="cerrar-sesion.php">Cerrar sesión</a>
 				</li>
-			
+			<?php } ?>
 			</ul>
 		</nav>
 	</div>

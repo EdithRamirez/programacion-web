@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once __DIR__ . "/includes/funciones.php";
 
 	$paginaActual = "inicio";
@@ -24,11 +25,15 @@
 					<p>Consulta avisos, recursos y publicaciones compartidas por la comunidad del campus.</p>
 
 					<!-- PRÁCTICA -->
-					<div class="hero-actions">
-						<a class="button" href="acceso.php">Iniciar sesión</a>
-
-						<a class="button" href="panel.php">Ir al panel</a>
-					</div>
+					<?php if (!isset($_SESSION["usuario_id"])) { ?>
+						<div class="hero-actions">
+							<a class="button" href="acceso.php">Iniciar sesión</a>
+						</div>
+					<?php } else { ?>
+						<div class="hero-actions">
+							<a class="button" href="panel.php">Ir al panel</a>
+						</div>
+					<?php } ?>
 			
 				</div>
 			</section>
@@ -41,7 +46,9 @@
 							<p class="section-description">Este contenido es público y puede consultarse sin iniciar sesión.</p>
 						</div>
 						<!-- PRÁCTICA -->
-						<a class="button" href="publicacion.php">Nueva publicación</a>
+						<?php if (isset($_SESSION["usuario_id"])) { ?>
+							<a class="button" href="publicacion.php">Nueva publicación</a>
+						<?php } ?>
 					</div>
 					<div class="posts-grid">
 						<?php if (count($publicaciones) > 0) { ?>
