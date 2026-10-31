@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	require_once __DIR__ . "/config/conexion.php";
 	require_once __DIR__ . "/includes/funciones.php";
 
 	$paginaActual = "inicio";
@@ -28,6 +29,7 @@
 					<?php if (!isset($_SESSION["usuario_id"])) { ?>
 						<div class="hero-actions">
 							<a class="button" href="acceso.php">Iniciar sesión</a>
+							<a class="button secondary" href="crear-cuenta.php">Crear cuenta</a>
 						</div>
 					<?php } else { ?>
 						<div class="hero-actions">

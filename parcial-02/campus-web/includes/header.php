@@ -12,11 +12,17 @@
 
 			<!-- PRÁCTICA -->
 			 <?php if (!isset($_SESSION["usuario_id"])) { ?>
+			 	<li>
+					<a href="crear-cuenta.php" class="<?php echo ($paginaActual === "crear-cuenta") ? "active" : ""; ?>">
+						Crear cuenta
+					</a>
+				</li>
 				<li>
 					<a href="acceso.php" class="<?php echo ($paginaActual === "acceso") ? "active" : ""; ?>">
 						Iniciar sesión
 					</a>
 				</li>
+				
 			<?php } else { ?>
 				<li>
 					<a href="panel.php" class="<?php echo ($paginaActual === "panel") ? "active" : ""; ?>">

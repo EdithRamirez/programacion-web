@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	require_once __DIR__ . "/config/conexion.php";
 
 	//setcookie() guarda/envía la cookie al navegador; $_COOKIE permite recuperarla en solicitudes posteriores.
 	require_once __DIR__ . "/includes/funciones.php";
