@@ -1,51 +1,65 @@
 <?php
 	session_start();
 	require_once __DIR__ . "/config/conexion.php";
-
-	//setcookie() guarda/envía la cookie al navegador; $_COOKIE permite recuperarla en solicitudes posteriores.
 	require_once __DIR__ . "/includes/funciones.php";
-
+	
+	// Redirigir si ya existe una sesión
 	if(isset($_SESSION["usuario_id"])) {
 		header("Location: panel.php");
 		exit;
 	}
 
 	$paginaActual = "acceso";
-	$usuarios = obtenerUsuarios();
-	$correo = "";
+	// Recuperar correo guardado en la cookie
+	$correo = $_COOKIE["correo_recordado"] ?? "";
 	$error = "";
-	if (isset($_COOKIE["correo_recordado"])) {
-		$correo = $_COOKIE["correo_recordado"];
-	}
-	if (isset($_POST["enviar"])) {
-		$correo = trim($_POST["correo"]);
-		$password = $_POST["password"];
 
-		// PRÁCTICA: buscar un usuario que coincida con las credenciales recibidas
-		// isset() verifica, $_COOKIE recupera y setcookie() guarda.
-		foreach ($usuarios as $usuario) { 
-			if ( $usuario["correo"] === $correo && $usuario["password"] === $password) {
+	// Procesar el formulario
+	if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-				// Guardar o eliminar la cookie
-				if (isset($_POST["recordar"])) {
-					setcookie("correo_recordado", $correo, time() + 3600, "/");
-				} else {
-					setcookie("correo_recordado", "", time() - 3600, "/");
-				}
+		// Recuperar los datos enviados
+		$correo = trim($_POST["correo"] ?? "");
+		$password = $_POST["password"] ?? "";
 
-				// Guardar datos en la sesión
-				$_SESSION["usuario_id"] = $usuario["id"];
-				$_SESSION["nombre"] = $usuario["nombre"];
-				$_SESSION["correo"] = $usuario["correo"];
-				$_SESSION["rol"] = $usuario["rol"];
+		// Buscar el usuario por correo
+		$stmt = mysqli_prepare(
+			$conexion,
+			"SELECT id, nombre, correo, password, rol FROM usuarios WHERE correo = ? LIMIT 1"
+		);
 
-				header("Location: panel.php");
-				exit;
+		// Asociar el correo
+		mysqli_stmt_bind_param($stmt, "s", $correo);
+
+		// Ejecutar la consulta
+		mysqli_stmt_execute($stmt);
+
+		// Obtener el resultado
+		$resultado = mysqli_stmt_get_result($stmt);
+
+		// Obtener los datos del usuario
+		$usuario = mysqli_fetch_assoc($resultado);
+
+		// Verificar usuario y contraseña
+		if ($usuario && password_verify($password, $usuario["password"])) {
+
+			// Guardar datos en la sesión
+			$_SESSION["usuario_id"] = $usuario["id"];
+			$_SESSION["nombre"] = $usuario["nombre"];
+			$_SESSION["correo"] = $usuario["correo"];
+			$_SESSION["rol"] = $usuario["rol"];
+
+			// Guardar o eliminar la cookie
+			if (isset($_POST["recordar"])) {
+				setcookie("correo_recordado", $correo, time() + (60 * 60 * 24 * 30), "/");
 			} else {
-				$error = "Correo o contraseña incorrectos.";
+				setcookie("correo_recordado", "", time() - 3600, "/");
 			}
+
+			header("Location: panel.php");
+			exit;
 		}
-			
+
+		$error = "Correo o contraseña incorrectos.";
 	}
 ?>
 <!DOCTYPE html>
@@ -65,7 +79,8 @@
 				<div class="container">
 					<span class="eyebrow">Área privada</span>
 					<h1>Iniciar sesión</h1>
-					<p>Accede a Campus Web utilizando una de las cuentas disponibles para esta práctica.</p>
+					<!--Ajuste de texto -->
+					<p>Accede a tu cuenta para ingresar al panel de Campus Web.</p>
 				</div>
 			</section>
 
@@ -90,7 +105,6 @@
 									<input type="password" id="password" name="password">
 								</div>
 							</div>
-							<!-- PRÁCTICA -->
 							<label class="remember-option">
 								<input type="checkbox" name="recordar" <?php echo ($correo !== "") ? "checked" : ""; ?>>
 								Recordar correo
