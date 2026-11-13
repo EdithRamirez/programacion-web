@@ -15,6 +15,7 @@
 
 	// Determinar si se creará o editará una publicación
 	//(int) convierte el valor a entero.
+	//id = 0 nueva publicación
 	$id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
 	$modoEdicion = $id > 0;
 
